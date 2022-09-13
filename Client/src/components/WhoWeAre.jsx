@@ -2,10 +2,10 @@ import React from "react";
 
 export default function WhoWeAre() {
   return (
-    <div className="py-[20vh] shadow-textBlack shadow-md px-[25vh] text-center text-textBlack flex flex-col justify-center items-center bg-sitegreen my-20">
+    <div className="py-[15vw] px-[6vw] sm:px-[10vw] lg:px-[10vw] shadow-textBlack shadow-md text-center text-textBlack flex flex-col justify-center items-center bg-sitegreen mb-10 mt-20">
       <div className="box">
-      <p className="text-3xl font-bold my-2">What We Are</p>
-      <p className="font-medium">
+      <p className="text-xl sm:text-2xl md:text-3xl font-bold my-2">What We Are</p>
+      <p className="font-medium text-[12px] sm:text-base">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
         accusamus molestiae itaque. Aperiam quibusdam nulla optio tempora quidem
         atque accusantium ut tenetur, cumque reiciendis et! Tenetur, blanditiis

@@ -8,6 +8,6 @@
     @apply container mx-auto max-w-[1350px] px-5;
   }
   .btn {
-    @apply uppercase flex flex-row gap-2 items-center bg-siteBlue text-white font-medium p-2 rounded-lg hover:bg-sitegreen hover:text-textBlack cursor-pointer;
+    @apply uppercase flex flex-row gap-1 sm:gap-2 items-center bg-siteBlue text-white font-medium p-1 md:p-2 rounded-sm sm:rounded-lg hover:bg-sitegreen hover:text-textBlack cursor-pointer text-[10px] md:text-base;
   }
 }
