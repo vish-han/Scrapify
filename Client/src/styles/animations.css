@@ -1,20 +1,27 @@
-.hero-head>span{
-    color: #4E71FF;
-    transition: all 500ms ease;
+.hero-head > span {
+  color: #4e71ff;
+  transition: all 500ms ease;
 }
-.hero-head:hover.hero-head>span{
-    font-size: 4rem;
-    animation: colorChange 1s infinite linear;
+.hero-head:hover.hero-head > span {
+  font-size: 4rem;
+  animation: colorChange 1s infinite linear;
 }
 
 @keyframes colorChange {
-    0%{
-        color: #4E71FF;
-    }
-    50%{
-        color: #5CF8AD;
-    }
-    100%{
-        color: #4E71FF;
-    }
+  0% {
+    color: #4e71ff;
+  }
+  50% {
+    color: #5cf8ad;
+  }
+  100% {
+    color: #4e71ff;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .hero-head:hover.hero-head > span {
+    font-size: 2.3rem;
+    animation: colorChange 1s infinite linear;
+  }
 }
