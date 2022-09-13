@@ -1,0 +1,20 @@
+.hero-head>span{
+    color: #4E71FF;
+    transition: all 500ms ease;
+}
+.hero-head:hover.hero-head>span{
+    font-size: 4rem;
+    animation: colorChange 1s infinite linear;
+}
+
+@keyframes colorChange {
+    0%{
+        color: #4E71FF;
+    }
+    50%{
+        color: #5CF8AD;
+    }
+    100%{
+        color: #4E71FF;
+    }
+}
