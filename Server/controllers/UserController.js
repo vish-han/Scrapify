@@ -1,5 +1,6 @@
 const Users=require('../models/UserModel')
 const bcrypt = require("bcryptjs");
+const { use } = require('../routes/UserRoutes');
 
 
 const register = async (req, res) => {
@@ -30,6 +31,7 @@ try {
 }
       
 }
+
 
 const userDetail=async (req, res) => {
 try {
