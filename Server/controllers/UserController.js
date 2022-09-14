@@ -31,7 +31,25 @@ try {
       
 }
 
+const userDetail=async (req, res) => {
+try {
+  fullname = req.params.fullname;
+let user = await Users.findOne({ fullname: fullname });
+if (!user) {
+  return res.status(400).json({ error: "User does not exist :("})
+}
+res.status(200).json(user);
+} catch (error) {
+  res.status(400).json({error:error})
+}
 
-module.exports ={register,login};
+}
+
+
+
+
+
+
+module.exports ={register,login,userDetail};
 
 
