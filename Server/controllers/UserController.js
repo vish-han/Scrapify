@@ -5,7 +5,10 @@ const { use } = require('../routes/UserRoutes');
 
 const register = async (req, res) => {
     try {
-
+let checkEmail=await Users.findOne({email:req.body.email});
+if(checkEmail){
+  res.status(400).json({message:"Email already Exist"})
+}
         let User=await Users.create({fullname:req.body.fullname,email:req.body.email,password:bcrypt.hashSync(req.body.password, 8),address:req.body.address,isDealer:req.body.isDealer,isHouseHold:req.body.isHouseHold,number:req.body.number});
         res.status(200).json(User);
     } catch (error) {

@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 const Info = () => {
   return (
     <>
+    <div className="flex flex-row justify-center items my-8 text-5xl font-bold">A Eco-Friendly Guide To<span className="text-siteBlue mx-2"> Waste Management</span></div>
       <div className="box flex flex-row md:flex-row gap-3 md:gap-5 justify-between items-center mb-5">
         <div className="md:flex flex items-start flex-col justify-center mt-5">
           <h1 className="hero-head text-xl sm:text-3xl lg:text-5xl font-bold my-1 sm:my-3 lg:my-5 text-textBlack relative">

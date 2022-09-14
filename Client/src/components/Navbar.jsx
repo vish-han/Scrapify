@@ -6,7 +6,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="box flex flex-row justify-between items-center my-4 relative">
+    <div className="box flex flex-row justify-between items-center my-4 relative mb-3">
       <Link to="/">
         <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl text-siteBlue font-bold cursor-pointer">
           scrapify
