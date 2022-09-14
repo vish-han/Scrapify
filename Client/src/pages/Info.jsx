@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
+import '../styles/animations.css'
 const Info = () => {
   return (
     <>
