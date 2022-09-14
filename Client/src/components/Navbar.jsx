@@ -28,7 +28,9 @@ export default function Navbar() {
         <Link to="/">
           <p className="cursor-pointer">Home</p>
         </Link>
+        <Link to="/deals">
         <p className="cursor-pointer">Deal</p>
+        </Link>
         <Link to="/login">
           <p className="cursor-pointer">Log In</p>
         </Link>

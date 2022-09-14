@@ -17,7 +17,7 @@ setTimeout(() => {
   },[])
   Aos.init();
   return (
-    
+   <>
     <div className="App font-poppins">
       <Navbar />
       <Routes>
@@ -27,7 +27,8 @@ setTimeout(() => {
         <Route path="deals" element={<Deals />} />
       </Routes>
     </div>
-  );
+    </> 
+  ); 	
 }
 
 export default App;
