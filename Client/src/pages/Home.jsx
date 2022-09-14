@@ -9,7 +9,6 @@ export default function Home() {
   document.title = 'SCRAPIFY | HOME'
   return (
     <div>
-      <Navbar/>
       <Hero/>
       <WhoWeAre/>
       <Services/>
