@@ -1,6 +1,9 @@
-const Users=require('../models/UserModel')
+const User=require('../models/UserModel')
 
-const register = (req, res) => {
-    const User=Users.create({name:req.name,email:req.email,password:req.password,address:req.address,isDealer:})
-    
+const register = async (req, res) => {
+    let User=await User.create({name:req.body.name,email:req.body.email,password:req.body.password,address:req.body.address,isDealer:req.body.isDealer,isHouseHold:req.body.isHouseHold,number:req.body.number});
+    res.json(User)
 }
+module.exports ={register};
+
+
