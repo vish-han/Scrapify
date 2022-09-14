@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Aos from "aos";
 import Auth from "./pages/Auth";
+import Info from "./pages/Info";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="login" element={<Auth/>} />
+<Route path="info" element={<Info/>} />
       </Routes>
     </div>
   );

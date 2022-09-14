@@ -3,6 +3,7 @@ import image1 from "../assets/lookaround.svg";
 import image2 from "../assets/recycle.jpg";
 import image3 from "../assets/deal.jpg";
 import { BsArrowRight } from "react-icons/bs";
+import {Link } from "react-router-dom"
 
 export default function Services() {
   return (
@@ -46,7 +47,9 @@ export default function Services() {
             repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Aliquid, enim.
           </p>
+          <Link to="info">
           <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">Learn More <BsArrowRight/></div>
+          </Link>
         </div>
         <div className="md:flex-[0.3] flex items-center justify-center">
           <img src={image2} alt="look around" className="object-contain w-3/4 md:w-full"/>
