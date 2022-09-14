@@ -1,5 +1,6 @@
 const Users=require('../models/UserModel')
 const bcrypt = require("bcryptjs");
+const { use } = require('../routes/UserRoutes');
 
 const register = async (req, res) => {
     try {
@@ -11,25 +12,26 @@ const register = async (req, res) => {
     }
 }
 const login=async(req, res)=>{
-    
-        console.log(req.method);
-        try {
-          const email = req.body.email;
-          const password = req.body.password;
-          const user = await Users.findOne({ email: email });
-          if (!user) {
-            res.status(404).json({ error: "user does not exist" });
-          }
-          const passCompare = bcrypt.compare(password, user.password);
-          if (!passCompare) {
-            return res.status(400).json({ error: "Wrong Credentials" });
-          }
-          res.status(200).json({message: "You are logged in successfully"});
-        } catch (error) {
-          res.status(400).json({ error: error });
-        }
+  const { email, password } = req.body;
+try {
+  let user = await Users.findOne({ email: email });
+  if (!user) {
+    return res.status(400).json({ error: "Wrong Credentials" });
+  }
+  const passCompare = await bcrypt.compare(password, user.password);
+  if (!passCompare) {
+    return res.status(400).json({ error: "Wrong Credentials" });
+  }
+
+  res.json (user);
+} catch (error) {
+  console.error(error.message);
+  res.status(500).send("some error occoured");
+}
       
 }
+
+
 module.exports ={register,login};
 
 

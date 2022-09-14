@@ -6,8 +6,8 @@ password:{type:"string",required:"true"},
 email:{type:"string",required:"true"},
 number:{type:"string",required:"true"},
 address:{type:"string",required:"true"},
-isHouseHolding:{type:"boolean",default:"true"},
-isDealer:{type:"boolean",required:"true",default:"false"}
+isHouseHold:{type:"boolean",default:"true"},
+isDealer:{type:"boolean",default:"false",}
 
 })
 const User = mongoose.model("User", UserSchema)
