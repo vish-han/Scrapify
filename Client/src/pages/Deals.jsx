@@ -12,7 +12,8 @@ const Deals = () => {
         <h1 className="  text-siteBlue mx-2 font-bold text-center text-5xl ">
           Find in Maps
         </h1>
-        <Dealer/>
+        <Dealer/> 
+       
         
         
     

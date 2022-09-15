@@ -34,7 +34,9 @@ export default function Navbar() {
         <Link to="/login">
           <p className="cursor-pointer">Log In</p>
         </Link>
+        <Link to="/contact">
         <p className="cursor-pointer">Contact Us</p>
+        </Link>
       </div>
     </div>
   );

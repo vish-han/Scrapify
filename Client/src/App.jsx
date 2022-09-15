@@ -7,15 +7,11 @@ import Auth from "./pages/Auth";
 import Info from "./pages/Info";
 import Navbar from "./components/Navbar";
 import Deals from "./pages/Deals";
+import Contact from "./pages/Contact";
 
 
 function App() {
-  const [Loading,setLoading] =useState(false)
-  useEffect(() =>{
-setTimeout(() => {
-  setLoading(true)
-}, 1000);
-  },[])
+
   Aos.init();
   return (
    <>
@@ -26,6 +22,7 @@ setTimeout(() => {
         <Route path="login" element={<Auth />} />
         <Route path="info" element={<Info />} />
         <Route path="deals" element={<Deals />} />
+        <Route path="contact" element={<Contact/>} />
        
       </Routes>
     </div>
