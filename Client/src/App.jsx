@@ -8,6 +8,7 @@ import Info from "./pages/Info";
 import Navbar from "./components/Navbar";
 import Deals from "./pages/Deals";
 
+
 function App() {
   const [Loading,setLoading] =useState(false)
   useEffect(() =>{
@@ -25,6 +26,7 @@ setTimeout(() => {
         <Route path="login" element={<Auth />} />
         <Route path="info" element={<Info />} />
         <Route path="deals" element={<Deals />} />
+       
       </Routes>
     </div>
     </> 

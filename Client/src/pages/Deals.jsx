@@ -4,7 +4,7 @@ import Dealer from "../components/Dealer";
 const Deals = () => {
   return (
     <div className="box flex flex-col  justify-start  h-full">
-      <div className="flex  ml-[-4.4px] rounded-lg">
+      <div className="flex  ml-[-4.4px] rounded-lg my-3">
         <img src={map} alt="Map Image"/>
       </div>
    
@@ -13,8 +13,7 @@ const Deals = () => {
           Find in Maps
         </h1>
         <Dealer/>
-        <Dealer/>
-        <Dealer/>
+        
         
     
          
