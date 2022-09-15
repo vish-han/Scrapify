@@ -13,6 +13,8 @@ const Deals = () => {
           Find in Maps
         </h1>
         <Dealer/> 
+        <Dealer/> 
+        <Dealer/> 
        
         
         
