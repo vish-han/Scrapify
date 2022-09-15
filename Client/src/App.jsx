@@ -8,6 +8,8 @@ import Info from "./pages/Info";
 import Navbar from "./components/Navbar";
 import Deals from "./pages/Deals";
 import Contact from "./pages/Contact";
+import Error from "./pages/Error";
+
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route path="info" element={<Info />} />
         <Route path="deals" element={<Deals />} />
         <Route path="contact" element={<Contact/>} />
+        <Route path="*" element={<Error/>}/>
        
       </Routes>
     </div>
