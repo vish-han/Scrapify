@@ -7,6 +7,7 @@
   animation: colorChange 1s infinite linear;
 }
 
+
 @keyframes colorChange {
   0% {
     color: #4e71ff;
