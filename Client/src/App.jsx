@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Deals from "./pages/Deals";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
+import Loading from "./pages/Loading";
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="login" element={<Auth />} />
         <Route path="info" element={<Info />} />
         <Route path="deals" element={<Deals />} />
+        <Route path="loading" element={<Loading></Loading>} />
         <Route path="contact" element={<Contact/>} />
         <Route path="*" element={<Error/>}/>
        
