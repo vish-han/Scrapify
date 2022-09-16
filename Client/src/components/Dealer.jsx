@@ -6,7 +6,7 @@ const Dealer = () => {
     <div>
     <div className="flex flex-col justify-center items-center my-4 w-full h-full">
 
-    <div className="flex flex-row bg-emerald-400 w-[80vw] h-[60px] rounded-full justify-around hover:justify-between content-center">
+    <div className="flex flex-row bg-emerald-400 w-[80vw] h-[60px] rounded-full justify-around hover:justify-between content-center duration-500">
       <img src={logo} alt="" className="rounded-full w-[50px] h-[50px]"  />
      <div  className="flex flex-col justify-center text-white">
       <h1 className="text-2xl font-bold">Vishal Chauhan</h1>
