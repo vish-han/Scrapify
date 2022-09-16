@@ -1,59 +1,73 @@
-const Users = require("../models/UserModel");
+const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
-const { use } = require("../routes/UserRoutes");
+const generateToken = require("../utils/generateToken");
 
 const register = async (req, res) => {
+  const {name, email, address, number, poster_path, userkind, isLocalAdmin} = req.body;
   try {
-    let checkEmail = await Users.findOne({ email: req.body.email });
+    let checkEmail = await User.findOne({ email: email });
     if (checkEmail) {
       res.status(400).json({ message: "Email already Exist" });
     }
-    let User = await Users.create({
-      fullname: req.body.fullname,
-      email: req.body.email,
-      transaction: {
-        HouseHold: req.body.transactions.HouseHold,
-        Dealer: req.body.transactions.Dealer,
-        isSuccessfull: req.body.transactions.isSuccessfull,
-      },
-      password: bcrypt.hashSync(req.body.password, 8),
-      address: req.body.address,
-      isDealer: req.body.isDealer,
-      isHouseHold: req.body.isHouseHold,
-      number: req.body.number,
+
+    const pass = bcrypt.hashSync(req.body.password, 8)
+
+    let user = await User.create({
+      name: name,
+      email: email,
+      password: pass,
+      address: address,
+      number: number,
+      userkind: userkind,
+      poster_path: poster_path,
+      isLocalAdmin: isLocalAdmin
     });
-    res.status(200).json(User);
+    const token = generateToken(user._id);
+    const { password, ...rest } = user;
+
+    res.status(200).json({
+      ...rest._doc,
+      token: token,
+    });
   } catch (error) {
     res.status(400).json(error);
   }
 };
 const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email } = req.body;
   try {
-    let user = await Users.findOne({ email: email });
+    let user = await User.findOne({ email: email });
     if (!user) {
       return res.status(400).json({ error: "Wrong Credentials" });
     }
-    const passCompare = await bcrypt.compare(password, user.password);
+    const passCompare = await bcrypt.compare(req.body.password, user.password);
     if (!passCompare) {
       return res.status(400).json({ error: "Wrong Credentials" });
     }
 
-    res.json(user);
+    const token = generateToken(user._id);
+    const { password, ...rest } = user;
+
+    res.status(200).json({
+      ...rest._doc,
+      token: token,
+    });
   } catch (error) {
-    console.error(error.message);
-    res.status(500).send("some error occoured");
+    res.status(500).json({ message: error.message });
   }
 };
 
 const userDetail = async (req, res) => {
   try {
-    fullname = req.params.fullname;
-    let user = await Users.findOne({ fullname: fullname });
+    const id = req.params.id;
+    let user = await User.findOne({ _id: id });
     if (!user) {
       return res.status(400).json({ error: "User does not exist :(" });
     }
-    res.status(200).json(user);
+
+    const {password, ...rest} = user;
+
+    res.status(200).json(rest._doc);
   } catch (error) {
     res.status(400).json({ error: error });
   }

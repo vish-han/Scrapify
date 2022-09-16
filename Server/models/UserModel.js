@@ -1,21 +1,27 @@
 const mongoose = require("mongoose");
-// const Transactions = require('./TransactionModel')
-const TransactionSchema = mongoose.Schema({
-  HouseHold: { type: "string", required: "true" },
-  Dealer: { type: "string", required: "true" },
-  date: { type: Date, default: Date.now() },
-  isSuccessfull: { type: "boolean" },
-});
-const UserSchema = mongoose.Schema({
-  fullname: { type: "string", required: "true" },
-  password: { type: "string", required: "true" },
-  email: { type: "string", required: "true" },
-  number: { type: "string", required: "true" },
-  address: { type: "string", required: "true" },
-  isHouseHold: { type: "boolean", default: "true" },
-  isDealer: { type: "boolean", default: "false" },
-  date: { type: Date, default: Date.now() },
-  transactions: TransactionSchema,
-});
+
+const UserSchema = mongoose.Schema(
+  {
+    name: { type: "string", required: "true" },
+    poster_path: {
+      type: "string",
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL6DwQb05xlCpS5qcHLCzTLs9rvhe8GvAIFZn77fjh&s",
+    },
+    password: { type: "string", required: "true" },
+    email: { type: "string", required: "true" },
+    number: { type: "string", required: "true" },
+    address: { type: "string", required: "true" },
+    userkind: { type: "string", required: "true" },
+    isLocalAdmin: { type: Boolean, default: "false" },
+    date: { type: Date, default: Date.now() },
+    ratings: { type: Number },
+    disposeArea: ["string"],
+    priceRate: ["string"], //as json strungified
+  },
+  {
+    timestamps: true,
+  }
+);
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
