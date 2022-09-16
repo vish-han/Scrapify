@@ -7,7 +7,7 @@ export default function AuthSwitch({isDealer, setIsDealer}) {
       <div
         className={`absolute ${
           !isDealer ? "translate-x-[100%]" : "translate-x-0"
-        } duration-300 left-0 top-0 bg-siteBlue w-[50%] h-[100%]`}
+        } duration-300 left-0 top-0 opacity-80 bg-siteBlue w-[50%] h-[100%]`}
       />
       <div
         className="cursor-pointer p-2 flex items-center justify-center bg-sitegreen flex-1"
