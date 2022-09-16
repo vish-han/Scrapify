@@ -42,28 +42,16 @@ export default function Services() {
           />
         </div>
         <div className="flex flex-col md:flex-[0.7] items-start">
-<<<<<<< HEAD
        
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">Find NearBy Dealers</h1>
-=======
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">
-            Find NearBy Dealers
-          </h1>
->>>>>>> 91dad02a793d8a058cacc40095269cca5b1b5c3a
           <p className="text-[12px] xs:text-sm sm:text-lg md:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
             repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Aliquid, enim.
           </p>
-<<<<<<< HEAD
           <Link to="deals">
           <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">Make Deal <BsArrowRight/></div>
           </Link>
-=======
-          <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
-            Make Deal <BsArrowRight />
-          </div>
->>>>>>> 91dad02a793d8a058cacc40095269cca5b1b5c3a
         </div>
       </div>
       {/* three */}
