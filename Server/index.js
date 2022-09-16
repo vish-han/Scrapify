@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require('mongoose')
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const UserRoutes= require('./routes/UserRoutes.js')
+
 dotenv.config();
 
 const app = express();
@@ -16,11 +16,15 @@ app.use(cors());
 app.use(express.json());
 
 // routes import here
+const UserRoutes= require('./routes/UserRoutes.js')
+const TransRoutes = require('./routes/TransacRoutes')
 
 app.get("/", (req, res) => {
   res.send("its working");
 });
-app.use('/',UserRoutes);
+
+app.use('/auth',UserRoutes);
+app.use('/transac', TransRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL)
