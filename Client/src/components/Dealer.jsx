@@ -43,47 +43,4 @@ const Dealer = () => {
   );
 };
 
-<<<<<<< HEAD
-    <div className="flex flex-row bg-emerald-400 w-[80vw] h-[60px] rounded-full justify-around hover:justify-between content-center duration-500">
-      <img src={logo} alt="" className="rounded-full w-[50px] h-[50px]"  />
-     <div  className="flex flex-col justify-center text-white">
-      <h1 className="text-2xl font-bold">Vishal Chauhan</h1>
-      <h2 className="text-xl">Phone : 9871838347</h2>
-     </div>
-     <div  className="flex flex-col justify-center text-white">
-     <h1 className="text-2xl font-bold ">Distance : <span className="text-siteBlue">20Km</span></h1>
-      <h2 className="text-xl">Phone : 9871838347</h2>
-     </div>
-     <div  className="flex flex-col justify-center text-white">
-     <h1 className="text-2xl ">Rating:🌟🌟🌟🌟🌟</h1>
-    
-     </div>
-     <div  className="flex flex-col justify-center text-white">
-     <button className="btn rounded-full p-4">Deal</button>
-    
-     </div>
-=======
 export default Dealer;
->>>>>>> 91dad02a793d8a058cacc40095269cca5b1b5c3a
-
-{
-  /* <div className="flex flex-row bg-emerald-400 gap-10 flex-wrap rounded-full justify-around hover:justify-between content-center">
-            <img src={logo} alt="" className="rounded-full w-[50px] h-[50px]" />
-            <div className="flex flex-col justify-center text-white">
-              <h1 className="text-2xl font-bold">Vishal Chauhan</h1>
-              <h2 className="text-xl">Phone : 9871838347</h2>
-            </div>
-            <div className="flex flex-col justify-center text-white">
-              <h1 className="text-2xl font-bold ">
-                Distance : <span className="text-siteBlue">20Km</span>
-              </h1>
-              <h2 className="text-xl">Phone : 9871838347</h2>
-            </div>
-            <div className="flex flex-col justify-center text-white">
-              <h1 className="text-2xl ">Rating:🌟🌟🌟🌟🌟</h1>
-            </div>
-            <div className="flex flex-col justify-center text-white">
-              <button className="btn rounded-full p-4">Deal</button>
-            </div>
-          </div> */
-}

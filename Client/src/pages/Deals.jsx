@@ -1,6 +1,7 @@
 import React from "react";
 import map from "../assets/map.png";
 import Dealer from "../components/Dealer";
+
 const Deals = () => {
   return (
     <div className="box flex flex-col justify-start h-full">
