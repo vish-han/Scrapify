@@ -1,48 +1,84 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthForm from "../components/AuthForm";
 import AuthSwitch from "../components/AuthSwitch";
-import axios from 'axios';
+import axios from "axios";
+import { Store } from "../store";
+import { useNavigate } from "react-router-dom";
+import Base_URL from "../axios";
+import { toast } from "react-toastify";
 
 export default function Auth() {
+  const { state, dispatch } = useContext(Store);
+  const navigate = useNavigate();
+
   const [isDealer, setIsDealer] = useState(false);
   const [register, setRegister] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [userData, setUserData] = useState({
     name: "",
     email: "",
-    paasword: "",
+    password: "",
     confirmPassword: "",
     phone: "",
     address: "",
     localAdminId: "",
+    userkind: "h",
   });
 
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try{
-      if(register){
-        const {data} = await axios.post('/auth/register', userData);
+    try {
+      if (register) {
+        if (
+          userData.name.length == 0 ||
+          userData.email.length == 0 ||
+          userData.password.length == 0 ||
+          userData.phone.length == 0 ||
+          userData.address.length == 0 ||
+          userData.userkind.length == 0
+        ) {
+          toast.error("Please fill all the fields");
+          return;
+        }
+        if (isDealer) userData.userkind = "s";
+
+        const { data } = await axios.post(
+          `${Base_URL}/auth/register`,
+          userData
+        );
+        localStorage.setItem("userInfo", JSON.stringify(data));
+
+        dispatch({ type: "SIGN_IN", payload: data });
+        navigate("/");
+      } else {
+        if (userData.email.length == 0 || userData.password.length == 0) {
+          toast.error("Please fill all the fields");
+          return;
+        }
+        const { data } = await axios.post(`${Base_URL}/auth/login`, userData);
         console.log(data);
-      }else{
-        const {data} = await axios.post('/auth/login', userData);
-        console.log(data);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+
+        dispatch({ type: "SIGN_IN", payload: data });
+
+        navigate("/");
       }
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
-    reset();
+    // reset();
   };
 
   const reset = () => {
     setUserData({
       name: "",
       email: "",
-      paasword: "",
+      password: "",
       confirmPassword: "",
       phone: "",
       address: "",
