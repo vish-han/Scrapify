@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Store } from "../store";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (userInfo) {
+      dispatch({ type: "SIGN_OUT" });
+      navigate("/login");
+    } else {
+      return;
+    }
+  };
 
   return (
     <div className="box flex flex-row justify-between items-center my-4 relative mb-3">
@@ -29,13 +42,15 @@ export default function Navbar() {
           <p className="cursor-pointer text-xl sm:text-md">Home</p>
         </Link>
         <Link to="/deals">
-        <p className="cursor-pointer text-xl sm:text-md">Deal</p>
+          <p className="cursor-pointer">Deal</p>
         </Link>
         <Link to="/login">
-          <p className="cursor-pointer text-xl sm:text-md">Log In</p>
+          <p className="cursor-pointer" onClick={handleClick}>
+            {userInfo ? "Log Out" : "Log In"}
+          </p>
         </Link>
         <Link to="/contact">
-        <p className="cursor-pointer text-xl sm:text-md">Contact Us</p>
+          <p className="cursor-pointer">Contact Us</p>
         </Link>
       </div>
     </div>

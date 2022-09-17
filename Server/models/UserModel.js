@@ -10,13 +10,15 @@ const UserSchema = mongoose.Schema(
     },
     password: { type: "string", required: "true" },
     email: { type: "string", required: "true" },
-    number: { type: "string", required: "true" },
+    phone: { type: String, required: "true" },
+    bio: {type: String, default: "A Student from Delhi, Doing his bit to save the environment"},
     address: { type: "string", required: "true" },
     userkind: { type: "string", required: "true" },
     isLocalAdmin: { type: Boolean, default: "false" },
     date: { type: Date, default: Date.now() },
     ratings: { type: Number },
     disposeArea: ["string"],
+    rewards: { type: Number, default: 0 },
     priceRate: ["string"], //as json strungified
   },
   {

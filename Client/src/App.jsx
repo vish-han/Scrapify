@@ -1,6 +1,5 @@
 import "./App.css";
-import {useState,useEffect} from 'react'
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Aos from "aos";
 import Auth from "./pages/Auth";
@@ -18,34 +17,38 @@ import Timeline from "./pages/timeline";
 import CreateDeal from "./pages/CreateDeal";
 import DOD from "./pages/DOD";
 
-
+// toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
   Aos.init();
   return (
-   <>
-    <div className="App font-poppins ">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Auth />} />
-        <Route path="info" element={<Info />} />
-        <Route path="deals" element={<Deals />} />
-        <Route path="loading" element={<Loading></Loading>} />
-        <Route path="profile" element={<Profile></Profile>} />
-        <Route path="deals/dealerprofile/timeline" element={<Timeline/>} />
-        <Route path="contact" element={<Contact/>} />
-        <Route path="*" element={<Error/>}/>
-        <Route path="deals/dealerprofile/deals/dealerprofile/createDeal" element={<CreateDeal></CreateDeal>}/>
-        <Route path="deals/dealerprofile" element={<DealerProfile/>}/>
-       <Route path="rewards" element={<Rewards/>}/>
-       <Route path="dod" element={<DOD></DOD>}></Route>
-       <Route path="transactions" element={<Transaction/>}/>
-      </Routes>
-    </div>
-    </> 
-  ); 	
+    <>
+      <div className="App font-poppins ">
+        <Navbar />
+        <ToastContainer position="bottom-center" limit={1} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Auth />} />
+          <Route path="info" element={<Info />} />
+          <Route path="deals" element={<Deals />} />
+          <Route path="loading" element={<Loading></Loading>} />
+          <Route path="profile" element={<Profile></Profile>} />
+          <Route path="deals/dealerprofile/timeline" element={<Timeline />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<Error />} />
+          <Route
+            path="deals/dealerprofile/deals/dealerprofile/createDeal"
+            element={<CreateDeal></CreateDeal>}
+          />
+          <Route path="deals/dealerprofile" element={<DealerProfile />} />
+          <Route path="rewards" element={<Rewards />} />
+          <Route path="transactions" element={<Transaction />} />
+        </Routes>
+      </div>
+    </>
+  );
 }
 
 export default App;
