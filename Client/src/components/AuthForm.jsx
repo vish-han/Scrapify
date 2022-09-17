@@ -1,7 +1,15 @@
 import React from "react";
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
-export default function AuthForm({handleSubmit, register, isDealer, isAdmin, userData, handleChange, setIsAdmin}) {
+export default function AuthForm({
+  handleSubmit,
+  register,
+  isDealer,
+  isAdmin,
+  userData,
+  handleChange,
+  setIsAdmin,
+}) {
   return (
     <form className="" onSubmit={handleSubmit}>
       <input
@@ -28,7 +36,7 @@ export default function AuthForm({handleSubmit, register, isDealer, isAdmin, use
             name="confirmPassword"
             placeholder="Confirm Password"
             value={userData.confirmPassword}
-        onChange={handleChange}
+            onChange={handleChange}
           />
           <input
             type="text"
@@ -36,15 +44,15 @@ export default function AuthForm({handleSubmit, register, isDealer, isAdmin, use
             name="name"
             placeholder="Full Name"
             value={userData.name}
-        onChange={handleChange}
+            onChange={handleChange}
           />
           <input
             type="text"
             className="block border border-grey-light w-full p-3 rounded mb-4"
-            name="location"
+            name="address"
             placeholder={isDealer ? "Office Address" : "Address"}
             value={userData.location}
-        onChange={handleChange}
+            onChange={handleChange}
           />
           <input
             type="number"
@@ -52,7 +60,7 @@ export default function AuthForm({handleSubmit, register, isDealer, isAdmin, use
             name="phone"
             placeholder="Phone number"
             value={userData.phone}
-        onChange={handleChange}
+            onChange={handleChange}
           />
           {isDealer ? (
             <FormGroup>
