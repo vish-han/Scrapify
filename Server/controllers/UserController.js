@@ -2,8 +2,24 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 
+// twillio
+const accountSid = "ACccbf6dffd8991b3c994e8820d8ba3c11";
+const authToken = "f0d447950e0669f5b30b1fa130c0078a";
+const client = require("twilio")(accountSid, authToken);
+
 const register = async (req, res) => {
   const {name, email, address, number, poster_path, userkind, isLocalAdmin} = req.body;
+
+  client.messages
+    .create({
+      body: "Hey!! You have successfully registered in the SCRAPIFY, it's time to make a deal",
+      from: "whatsapp:+14155238886",
+      to: `whatsapp:${number}`,
+    })
+    .then((message) => console.log(message.sid))
+    .catch((err) => console.log(err))
+    .done();
+
   try {
     let checkEmail = await User.findOne({ email: email });
     if (checkEmail) {
@@ -22,6 +38,7 @@ const register = async (req, res) => {
       poster_path: poster_path,
       isLocalAdmin: isLocalAdmin
     });
+
     const token = generateToken(user._id);
     const { password, ...rest } = user;
 
