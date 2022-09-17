@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import banner from "../assets/heroBanner.jpg";
 import '../styles/animations.css'
 
@@ -15,7 +16,9 @@ export default function Hero() {
           est ullam, ducimus vero possimus rerum exercitationem saepe deleniti
           harum?
         </p>
+        <Link to='deals'>
         <div className="btn mt-5">Make A Deal</div>
+        </Link>
       </div>
       <div className="md:flex-[0.5] relative ">
         <img
