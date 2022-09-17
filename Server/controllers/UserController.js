@@ -90,4 +90,21 @@ const userDetail = async (req, res) => {
   }
 };
 
-module.exports = { register, login, userDetail };
+const updateUser = async(req, res) => {
+  try{
+    const user = await User.find({ _id: req.body._id });
+    if (!user)
+      res
+        .status(400)
+        .json({ message: "No such User exist, can't update" });
+    const details = await User.findByIdAndUpdate(req.body._id, req.body, {
+      new: true,
+    });
+
+    res.status(200).json(details);
+  }catch(err){
+    res.status(400).json({ error: err.message });
+  }
+} 
+
+module.exports = { register, login, userDetail, updateUser };
