@@ -16,6 +16,7 @@ import Transaction from "./pages/Transaction";
 import DealerProfile from "./pages/DealerProfile";
 import Timeline from "./pages/timeline";
 import CreateDeal from "./pages/CreateDeal";
+import DOD from "./pages/DOD";
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="deals/dealerprofile/deals/dealerprofile/createDeal" element={<CreateDeal></CreateDeal>}/>
         <Route path="deals/dealerprofile" element={<DealerProfile/>}/>
        <Route path="rewards" element={<Rewards/>}/>
+       <Route path="dod" element={<DOD></DOD>}></Route>
        <Route path="transactions" element={<Transaction/>}/>
       </Routes>
     </div>
