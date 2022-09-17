@@ -2,8 +2,24 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 
+// twillio
+const accountSid = `${process.env.accountSid}`;
+const authToken = `${process.env.authToken}`;
+const client = require("twilio")(accountSid, authToken);
+
 const register = async (req, res) => {
   const {name, email, address, number, poster_path, userkind, isLocalAdmin} = req.body;
+
+  client.messages
+    .create({
+      body: "Hey!! You have successfully registered in the SCRAPIFY, it's time to make a deal",
+      from: "whatsapp:+14155238886",
+      to: `whatsapp:${number}`,
+    })
+    .then((message) => console.log(message.sid))
+    .catch((err) => console.log(err))
+    .done();
+
   try {
     let checkEmail = await User.findOne({ email: email });
     if (checkEmail) {
@@ -22,6 +38,7 @@ const register = async (req, res) => {
       poster_path: poster_path,
       isLocalAdmin: isLocalAdmin
     });
+
     const token = generateToken(user._id);
     const { password, ...rest } = user;
 
@@ -73,4 +90,21 @@ const userDetail = async (req, res) => {
   }
 };
 
-module.exports = { register, login, userDetail };
+const updateUser = async(req, res) => {
+  try{
+    const user = await User.find({ _id: req.body._id });
+    if (!user)
+      res
+        .status(400)
+        .json({ message: "No such User exist, can't update" });
+    const details = await User.findByIdAndUpdate(req.body._id, req.body, {
+      new: true,
+    });
+
+    res.status(200).json(details);
+  }catch(err){
+    res.status(400).json({ error: err.message });
+  }
+} 
+
+module.exports = { register, login, userDetail, updateUser };
