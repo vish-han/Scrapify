@@ -36,7 +36,7 @@ const DealerProfile = () => {
           <div className="flex  box  rounded-lg my-3">
         <img src={map} alt="Map Image" />
       </div>
-      <Link to="timeline">
+      <Link to="deals/dealerprofile/createDeal">
         <div className="btn mt-5 duration-300 mb-5">Make a Deal</div>
         </Link>
         </div>
