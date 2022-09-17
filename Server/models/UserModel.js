@@ -17,6 +17,7 @@ const UserSchema = mongoose.Schema(
     date: { type: Date, default: Date.now() },
     ratings: { type: Number },
     disposeArea: ["string"],
+    rewards: { type: Number, default: 0 },
     priceRate: ["string"], //as json strungified
   },
   {

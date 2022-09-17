@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "../components/AuthForm";
 import AuthSwitch from "../components/AuthSwitch";
-import Navbar from "../components/Navbar";
+import axios from 'axios';
 
 export default function Auth() {
   const [isDealer, setIsDealer] = useState(false);
@@ -21,8 +21,20 @@ export default function Auth() {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+
+    try{
+      if(register){
+        const {data} = await axios.post('/auth/register', userData);
+        console.log(data);
+      }else{
+        const {data} = await axios.post('/auth/login', userData);
+        console.log(data);
+      }
+    }catch(err){
+      console.log(err);
+    }
     reset();
   };
 
