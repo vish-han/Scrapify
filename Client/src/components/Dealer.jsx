@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.jpg";
+
 const Dealer = () => {
   return (
     <>
@@ -32,9 +33,11 @@ const Dealer = () => {
               </div>
             </div>
             <div className="flex-1 w-full text-white">
+            
               <button className="w-full bg-sitegreen text-textBlack flex justify-center items-center md:rounded-full md:p-3 lg:p-5 md:py-5 lg:py-7">
                 Deal
               </button>
+              
             </div>
           </div>
         </div>
