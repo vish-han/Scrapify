@@ -18,6 +18,7 @@ app.use(express.json());
 // routes import here
 const UserRoutes= require('./routes/UserRoutes.js')
 const TransRoutes = require('./routes/TransacRoutes')
+const mapRoutes = require('./routes/MapRoutes')
 
 app.get("/", (req, res) => {
   res.send("its working");
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use('/auth',UserRoutes);
 app.use('/transac', TransRoutes);
+app.use('/map', mapRoutes)
 
 mongoose
   .connect(process.env.MONGO_URL)
