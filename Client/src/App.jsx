@@ -17,6 +17,7 @@ import Timeline from "./pages/timeline";
 import CreateDeal from "./pages/CreateDeal";
 import DOD from "./pages/DOD";
 
+
 // toastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,6 +39,7 @@ function App() {
           <Route path="deals/dealerprofile/timeline" element={<Timeline />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
+          <Route path="dod" element={<DOD></DOD>}/>
           <Route
             path="deals/dealerprofile/deals/dealerprofile/createDeal"
             element={<CreateDeal></CreateDeal>}

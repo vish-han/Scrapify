@@ -39,18 +39,18 @@ export default function Navbar() {
         } sm:translate-x-0 sm:static sm:border-none sm:flex sm:flex-row items-center gap-5 text-[10px] xs:text-sm md:text-lg text-textBlack font-medium`}
       >
         <Link to="/">
-          <p className="cursor-pointer text-xl sm:text-md">Home</p>
+          <p className="cursor-pointer text-lg font-bold sm:text-md">Home</p>
         </Link>
         <Link to="/deals">
-          <p className="cursor-pointer">Deal</p>
+          <p className="cursor-pointer text-lg font-bold">Deal</p>
         </Link>
         <Link to="/login">
-          <p className="cursor-pointer" onClick={handleClick}>
+          <p className="cursor-pointer text-lg font-bold" onClick={handleClick}>
             {userInfo ? "Log Out" : "Log In"}
           </p>
         </Link>
         <Link to="/contact">
-          <p className="cursor-pointer">Contact Us</p>
+          <p className="cursor-pointer text-lg font-bold">Contact Us</p>
         </Link>
       </div>
     </div>

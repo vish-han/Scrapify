@@ -18,11 +18,15 @@ export default function Services() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
             repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Aliquid, enim.
+            
           </p>
+          <Link to="dod">
           <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
+
             Check Now
             <BsArrowRight />
           </div>
+          </Link>
         </div>
         <div className="md:flex-[0.3] flex items-center justify-center">
           <img
