@@ -39,7 +39,7 @@ export default function Navbar() {
         } sm:translate-x-0 sm:static sm:border-none sm:flex sm:flex-row items-center gap-5 text-[10px] xs:text-sm md:text-lg text-textBlack font-medium`}
       >
         <Link to="/">
-          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Home</p>
+          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">Home</p>
         </Link>
           <div className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600" onClick={() => navigate('deal')}>Deal</div>
         

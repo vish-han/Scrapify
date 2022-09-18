@@ -20,17 +20,18 @@ const DealerProfile = () => {
   return (
     <div>
       {dealerData ? (
-        <div className="profile flex flex-col">
-          <div className="profile flex flex-col items-center justify-center">
+        <div className="profile flex flex-col ">
+          <div className="profile flex flex-row items-center justify-center gap-8	 mt-4">
             <img
               src={logo}
               alt=""
               className="w-[250px] h-[250px] rounded-full border-l-0 border-t-0 border-4 border-siteBlue mb-2"
             />
+          
+            <div className="flex flex-col items-center mt-4">
             <h1 className="text-5xl font-bold text-siteBlue text-center ">
               {dealerData.properties.title}
             </h1>
-            <div className="flex flex-col items-center mt-4">
               <span className="text-2xl text-green-500 mr-2 mb-2 mt-2 ">
                 Bio:
               </span>
@@ -57,6 +58,7 @@ const DealerProfile = () => {
             </div>
           </div>
         </div>
+         
       ) : (
         <h1>Loading...</h1>
       )}
