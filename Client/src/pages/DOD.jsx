@@ -7,7 +7,7 @@ const DOD = () => {
         <h1 className='text-center m-9 font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Deal of the Day</h1>
 <div className='flex flex-row box  justify-between mb-5 mt-3 flex-wrap'>
 
-<Card/>
+<Card pic="" rewName="Iron: Rs " />
 <Card/>
 <Card/>
 
