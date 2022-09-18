@@ -2,11 +2,18 @@ import React, { useContext } from "react";
 import "../styles/animations.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Store } from "../store";
+import { toast } from "react-toastify";
 const Profile = () => {
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
 
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch({ type: "SIGN_OUT" });
+    toast.success("Successfully logged out, see you again");
+    navigate("/login");
+  };
 
   return (
     <div className="profile flex flex-col ">
@@ -40,6 +47,9 @@ const Profile = () => {
               onClick={() => navigate("/transactions")}
             >
               Transaction
+            </div>
+            <div className="btn duration-300" onClick={handleLogout}>
+              Log Out
             </div>
           </div>
         </div>

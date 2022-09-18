@@ -6,7 +6,7 @@ const UserSchema = mongoose.Schema(
     poster_path: {
       type: "string",
       default:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL6DwQb05xlCpS5qcHLCzTLs9rvhe8GvAIFZn77fjh&s",
+        "https://static-media-prod-cdn.itsre-sumo.mozilla.net/static/default-FFA-avatar.2f8c2a0592bda1c5.png",
     },
     password: { type: "string", required: "true" },
     email: { type: "string", required: "true" },

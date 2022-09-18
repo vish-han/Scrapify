@@ -6,6 +6,7 @@ import axios from "axios";
 import Base_URL from "../axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateDeal = () => {
   const navigate = useNavigate();
@@ -23,10 +24,12 @@ const CreateDeal = () => {
         orderData: JSON.stringify(orderData),
       };
       await axios.post(`${Base_URL}/transac/newDeal`, data);
-      navigate('/timeline/:id')
+navigate("/success")
+      toast.success('Hey!! Your booked a new deal, Checkout Timeline for updates')
+      
 
     } catch (err) {
-      console.log(err);
+      toast.error('Some error occured, Please try again')
     }
   };
 

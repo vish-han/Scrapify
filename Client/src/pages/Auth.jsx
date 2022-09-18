@@ -55,6 +55,7 @@ export default function Auth() {
         localStorage.setItem("userInfo", JSON.stringify(data));
 
         dispatch({ type: "SIGN_IN", payload: data });
+        toast.success('Successfully registered into the app')
         navigate("/");
       } else {
         if (userData.email.length == 0 || userData.password.length == 0) {
@@ -66,11 +67,11 @@ export default function Auth() {
         localStorage.setItem("userInfo", JSON.stringify(data));
 
         dispatch({ type: "SIGN_IN", payload: data });
-
+        toast.success('Successfully logged into the app')
         navigate("/");
       }
     } catch (err) {
-      console.log(err);
+      toast.error('Some error occured, Please try again')
     }
     // reset();
   };
