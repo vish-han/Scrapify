@@ -88,7 +88,7 @@ export default function Auth() {
   };
   return (
     <div className="box flex flex-row-reverse items-center justify-between my-36">
-         <img src={Trash} alt=""  className="w-1/2 ml-5"/> 
+         <img src={Trash} alt=""  className="w-1/2"/> 
       <div className="flex flex-col gap-3 lg:w-[40vw] border-4 p-4 rounded-xl">
         {/* top switch */}
         <AuthSwitch isDealer={isDealer} setIsDealer={setIsDealer} />

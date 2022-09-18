@@ -45,8 +45,8 @@ function App() {
             element={<CreateDeal></CreateDeal>}
           />
           <Route path="deals/dealerprofile/:id" element={<DealerProfile />} />
-          <Route path="rewards" element={<Rewards />} />
-          <Route path="transactions" element={<Transaction />} />
+          <Route path="profile/rewards" element={<Rewards />} />
+          <Route path="profile/transactions" element={<Transaction />} />
         </Routes>
       </div>
     </>

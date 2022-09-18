@@ -9,7 +9,7 @@ export default function Services() {
   return (
     <div className="box flex flex-col justify-center items-center px-[5vw] sm:px-[10vw]">
       {/* one */}
-      <div className="flex flex-col md:flex-row justify-around mt-20 items-center gap-5">
+      <div className="flex flex-col md:flex-row justify-around mt-20 items-center gap-5" data-aos="zoom-in-down"> 
         <div className="flex flex-col md:flex-[0.7] items-start">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">
             Check Your Deals

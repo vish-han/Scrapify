@@ -39,18 +39,18 @@ export default function Navbar() {
         } sm:translate-x-0 sm:static sm:border-none sm:flex sm:flex-row items-center gap-5 text-[10px] xs:text-sm md:text-lg text-textBlack font-medium`}
       >
         <Link to="/">
-          <p className="cursor-pointer text-lg font-bold sm:text-md">Home</p>
+          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Home</p>
         </Link>
         <Link to="/deals">
-          <p className="cursor-pointer text-lg font-bold">Deal</p>
-        </Link>
-        <Link to="/login">
-          <p className="cursor-pointer text-lg font-bold" onClick={handleClick}>
-            {userInfo ? "Log Out" : "Log In"}
-          </p>
+          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Deal</p>
         </Link>
         <Link to="/contact">
-          <p className="cursor-pointer text-lg font-bold">Contact Us</p>
+          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Contact Us</p>
+        </Link>
+        <Link to="/login">
+          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600" onClick={handleClick}>
+            {userInfo ? "Log Out" : "Log In"}
+          </p>
         </Link>
       </div>
     </div>
