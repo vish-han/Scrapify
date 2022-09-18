@@ -15,6 +15,8 @@ import Transaction from "./pages/Transaction";
 import DealerProfile from "./pages/DealerProfile";
 import Timeline from "./pages/timeline";
 import CreateDeal from "./pages/CreateDeal";
+import DOD from "./pages/DOD";
+
 
 // toastify
 import { ToastContainer } from "react-toastify";
@@ -40,13 +42,14 @@ function App() {
           />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
+          <Route path="dod" element={<DOD></DOD>}/>
           <Route
             path="deals/dealerprofile/:id/deals/dealerprofile/createDeal"
             element={<CreateDeal />}
           />
           <Route path="deals/dealerprofile/:id" element={<DealerProfile />} />
-          <Route path="rewards" element={<Rewards />} />
-          <Route path="transactions" element={<Transaction />} />
+          <Route path="profile/rewards" element={<Rewards />} />
+          <Route path="profile/transactions" element={<Transaction />} />
         </Routes>
       </div>
     </>

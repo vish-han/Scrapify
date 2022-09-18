@@ -9,7 +9,7 @@ export default function Services() {
   return (
     <div className="box flex flex-col justify-center items-center px-[5vw] sm:px-[10vw]">
       {/* one */}
-      <div className="flex flex-col md:flex-row justify-around mt-20 items-center gap-5">
+      <div className="flex flex-col md:flex-row justify-around mt-20 items-center gap-5" data-aos="zoom-in-down"> 
         <div className="flex flex-col md:flex-[0.7] items-start">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">
             Check Your Deals
@@ -18,11 +18,15 @@ export default function Services() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
             repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Aliquid, enim.
+            
           </p>
+          <Link to="dod">
           <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
+
             Check Now
             <BsArrowRight />
           </div>
+          </Link>
         </div>
         <div className="md:flex-[0.3] flex items-center justify-center">
           <img

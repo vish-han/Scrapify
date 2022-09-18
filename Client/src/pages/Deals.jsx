@@ -171,9 +171,7 @@ const Deals = () => {
 
   return (
     <div className="box flex flex-col h-full">
-      <h1 className="text-siteBlue mx-2 font-bold text-center text-xl sm:text-3xl md:text-5xl my-5 sm:my-10">
-        Find in Maps
-      </h1>
+      <h1 className='text-center m-9 font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Make a Deal </h1>
       <div className="relative w-full h-[600px]">
         <div className="map-container" ref={mapContainerRef} id="map" />
       </div>

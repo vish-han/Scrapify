@@ -3,7 +3,7 @@ import React from 'react'
 const Timeline = () => {
   return (
     <>
-  <h1 className='text-2xl'>The Timeline</h1>
+
   <div>
   <ul class="timeline">
       <li>
