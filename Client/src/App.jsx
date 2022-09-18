@@ -32,14 +32,17 @@ function App() {
           <Route path="login" element={<Auth />} />
           <Route path="info" element={<Info />} />
           <Route path="deals" element={<Deals />} />
-          <Route path="loading" element={<Loading></Loading>} />
-          <Route path="profile" element={<Profile></Profile>} />
-          <Route path="deals/dealerprofile/:id/timeline" element={<Timeline />} />
+          <Route path="loading" element={<Loading />} />
+          <Route path="profile" element={<Profile />} />
+          <Route
+            path="deals/dealerprofile/:id/timeline"
+            element={<Timeline />}
+          />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
           <Route
-            path="deals/dealerprofile/:id/createDeal"
-            element={<CreateDeal></CreateDeal>}
+            path="deals/dealerprofile/:id/deals/dealerprofile/createDeal"
+            element={<CreateDeal />}
           />
           <Route path="deals/dealerprofile/:id" element={<DealerProfile />} />
           <Route path="rewards" element={<Rewards />} />
