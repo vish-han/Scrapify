@@ -20,12 +20,10 @@ export default function Services() {
       >
         <div className="flex flex-col md:flex-[0.7] items-start">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">
-            Check Your Deals
+            Check local Rates
           </h1>
           <p className="text-[12px] xs:text-sm sm:text-lg md:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-            repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Aliquid, enim.
+            Feel like you are unaware of the price rates you deserve for all the scrap you sell? Check here.
           </p>
           <Link to="dod">
             <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
@@ -56,11 +54,9 @@ export default function Services() {
             Find NearBy Dealers
           </h1>
           <p className="text-[12px] xs:text-sm sm:text-lg md:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-            repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Aliquid, enim.
+            There are a lot of scrap delers looking for the scrap. Our app ensures that the scrap is recycled. So if you have some scrap collected, contact someone from the dealers list.
           </p>
-          <Link to="deals">
+          <Link to="deal">
             <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
               Make Deal <BsArrowRight />
             </div>
@@ -74,9 +70,7 @@ export default function Services() {
             Why Recycle?
           </h1>
           <p className="text-[12px] xs:text-sm sm:text-lg md:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-            repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Aliquid, enim.
+            Most of us still don't understand the significance of recycling. Come lets dive deep into the issue and take our steps to save the environment.
           </p>
           <Link to="info">
             <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
