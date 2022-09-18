@@ -1,8 +1,11 @@
 import React from 'react'
 
 const Transaction = () => {
+  
   return (
-    <div>Transaction</div>
+    <div>
+
+    </div>
   )
 }
 

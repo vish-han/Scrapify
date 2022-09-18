@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import image1 from "../assets/lookaround.svg";
 import image2 from "../assets/recycle.jpg";
 import image3 from "../assets/deal.jpg";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Aos from "aos";
 
 export default function Services() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="box flex flex-col justify-center items-center px-[5vw] sm:px-[10vw]">
       {/* one */}
-      <div className="flex flex-col md:flex-row justify-around mt-20 items-center gap-5" data-aos="zoom-in-down"> 
+      <div
+        className="flex flex-col md:flex-row justify-around mt-20 items-center gap-5"
+        data-aos="zoom-in-down"
+      >
         <div className="flex flex-col md:flex-[0.7] items-start">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">
             Check Your Deals
@@ -18,14 +26,12 @@ export default function Services() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
             repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Aliquid, enim.
-            
           </p>
           <Link to="dod">
-          <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
-
-            Check Now
-            <BsArrowRight />
-          </div>
+            <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
+              Check Now
+              <BsArrowRight />
+            </div>
           </Link>
         </div>
         <div className="md:flex-[0.3] flex items-center justify-center">
@@ -46,15 +52,18 @@ export default function Services() {
           />
         </div>
         <div className="flex flex-col md:flex-[0.7] items-start">
-       
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">Find NearBy Dealers</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold my-3">
+            Find NearBy Dealers
+          </h1>
           <p className="text-[12px] xs:text-sm sm:text-lg md:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
             repellendus! Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Aliquid, enim.
           </p>
           <Link to="deals">
-          <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">Make Deal <BsArrowRight/></div>
+            <div className="btn mt-3 flex gap-2 hover:gap-10 duration-500">
+              Make Deal <BsArrowRight />
+            </div>
           </Link>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 const Dealer = ({ name, bio, address, phone, coord, id }) => {
+  const navigate = useNavigate();
 
   return (
     <>
@@ -37,11 +38,9 @@ const Dealer = ({ name, bio, address, phone, coord, id }) => {
               </div>
             </div>
             <div className="flex-1 w-full text-white">
-              <Link to={`dealerprofile/${id}`}>
-                <button className="w-full bg-sitegreen text-textBlack flex justify-center items-center md:rounded-full md:p-3 lg:p-5 md:py-5 lg:py-7">
+                <button className="w-full bg-sitegreen text-textBlack flex justify-center items-center md:rounded-full md:p-3 lg:p-5 md:py-5 lg:py-7" onClick={() => navigate(`/dealerprofile/${id}`)}>
                   Deal
                 </button>
-              </Link>
             </div>
           </div>
         </div>

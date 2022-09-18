@@ -11,10 +11,10 @@ export default function Navbar() {
 
   const handleClick = () => {
     if (userInfo) {
-      dispatch({ type: "SIGN_OUT" });
-      navigate("/login");
+      // dispatch({ type: "SIGN_OUT" });
+      navigate("/profile");
     } else {
-      return;
+      navigate('/login')
     }
   };
 
@@ -41,17 +41,13 @@ export default function Navbar() {
         <Link to="/">
           <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Home</p>
         </Link>
-        <Link to="/deals">
-          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Deal</p>
-        </Link>
-        <Link to="/contact">
-          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Contact Us</p>
-        </Link>
-        <Link to="/login">
+          <div className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600" onClick={() => navigate('deal')}>Deal</div>
+        
+          <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600" onClick={() => navigate('contact')}>Contact Us</p>
+  
           <p className="cursor-pointer text-lg  sm:text-md font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600" onClick={handleClick}>
-            {userInfo ? "Log Out" : "Log In"}
+            {userInfo ? `${userInfo.name}` : "Log In"}
           </p>
-        </Link>
       </div>
     </div>
   );
