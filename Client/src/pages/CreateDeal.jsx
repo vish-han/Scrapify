@@ -23,7 +23,7 @@ const CreateDeal = () => {
         orderData: JSON.stringify(orderData),
       };
       await axios.post(`${Base_URL}/transac/newDeal`, data);
-      navigate('')
+      navigate('/timeline/:id')
 
     } catch (err) {
       console.log(err);

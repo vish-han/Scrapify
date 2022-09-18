@@ -17,13 +17,15 @@ import Timeline from "./pages/timeline";
 import CreateDeal from "./pages/CreateDeal";
 import DOD from "./pages/DOD";
 
-
 // toastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 function App() {
-  Aos.init();
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <div className="App font-poppins ">
@@ -33,23 +35,23 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Auth />} />
           <Route path="info" element={<Info />} />
-          <Route path="deals" element={<Deals />} />
+          <Route path="deal" element={<Deals />} />
           <Route path="loading" element={<Loading />} />
           <Route path="profile" element={<Profile />} />
           <Route
-            path="deals/dealerprofile/:id/timeline"
+            path="timeline/:id"
             element={<Timeline />}
           />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
-          <Route path="dod" element={<DOD></DOD>}/>
+          <Route path="dod" element={<DOD />} />
           <Route
-            path="deals/dealerprofile/:id/deals/dealerprofile/createDeal"
+            path="createDeal/:id"
             element={<CreateDeal />}
           />
-          <Route path="deals/dealerprofile/:id" element={<DealerProfile />} />
-          <Route path="profile/rewards" element={<Rewards />} />
-          <Route path="profile/transactions" element={<Transaction />} />
+          <Route path="dealerprofile/:id" element={<DealerProfile />} />
+          <Route path="rewards" element={<Rewards />} />
+          <Route path="transactions" element={<Transaction />} />
         </Routes>
       </div>
     </>

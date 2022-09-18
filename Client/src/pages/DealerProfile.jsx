@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import logo from "../assets/logo.jpg";
-import map from "../assets/map.png";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { geojson } from "./Deals";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -10,11 +9,13 @@ const DealerProfile = () => {
   const params = useParams();
   const { id } = params;
   const [dealerData, setDealerData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const data = geojson.features.find((geo) => geo.id === id);
     setDealerData(data);
   }, []);
+
   return (
     <div>
       {dealerData ? (
@@ -32,7 +33,9 @@ const DealerProfile = () => {
               <span className="text-2xl text-green-500 mr-2 mb-2 mt-2 ">
                 Bio:
               </span>
-              <h1 className="text-2xl ml-2 ">{dealerData.properties.description}</h1>
+              <h1 className="text-2xl ml-2 ">
+                {dealerData.properties.description}
+              </h1>
               <span className="text-2xl text-green-500 mr-2 mt-2  mb-2">
                 Address:
               </span>
@@ -42,12 +45,14 @@ const DealerProfile = () => {
               </span>
               <h1 className="text-2xl ml-2 ">+{dealerData.extraInfo.phone}</h1>
             </div>
-            <div className="flex  box  rounded-lg my-3">
-              <img src={map} alt="Map Image" />
+            <div className="flex box rounded-lg my-3">
             </div>
-            <Link to="deals/dealerprofile/createDeal">
-              <div className="btn mt-5 duration-300 mb-5">Make a Deal</div>
-            </Link>
+            <div
+              className="btn mt-5 duration-300 mb-5"
+              onClick={() => navigate("/createDeal/:id")}
+            >
+              Make a Deal
+            </div>
           </div>
         </div>
       ) : (
