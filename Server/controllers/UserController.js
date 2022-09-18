@@ -108,4 +108,13 @@ const updateUser = async(req, res) => {
   }
 } 
 
-module.exports = { register, login, userDetail, updateUser };
+const getAllScrappers = async(req, res) => {
+  try{
+    const data = await User.find({userkind: 's'});
+    res.status(200).json(data);
+  }catch(err) {
+    res.status(400).json({ error: err.message });
+  }
+}
+
+module.exports = { register, login, userDetail, updateUser, getAllScrappers };
