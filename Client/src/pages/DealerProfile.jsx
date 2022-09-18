@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { geojson } from "./Deals";
 import { useEffect } from "react";
 import { useState } from "react";
+import map from '../assets/maproute.png'
 
 const DealerProfile = () => {
   const params = useParams();
@@ -19,7 +20,7 @@ const DealerProfile = () => {
   return (
     <div>
       {dealerData ? (
-        <div className="profile flex flex-col ">
+        <div className="profile flex flex-col">
           <div className="profile flex flex-col items-center justify-center">
             <img
               src={logo}
@@ -46,6 +47,7 @@ const DealerProfile = () => {
               <h1 className="text-2xl ml-2 ">+{dealerData.extraInfo.phone}</h1>
             </div>
             <div className="flex box rounded-lg my-3">
+              <img src={map} alt="map route" className="mx-auto border-4 border-green-700"/>
             </div>
             <div
               className="btn mt-5 duration-300 mb-5"
