@@ -1,6 +1,6 @@
 const Transac = require("../models/TransactionModel");
-const accountSid = `${process.env.accountSid}`;
-const authToken = `${process.env.authToken}`;
+const accountSid = `ACccbf6dffd8991b3c994e8820d8ba3c11`;
+const authToken = `b5753151bdf7281b03dea6c036a52cc6`;
 const client = require("twilio")(accountSid, authToken);
 
 const getAllTransac = async (req, res) => {
@@ -75,40 +75,49 @@ const getTransDetails = async (req, res) => {
   }
 };
 
-const newDealWhatsapp = async(req, res) => {
-  const {userNo, dealerNo, hMessage, sMessage} = req.body;
+const newDealWhatsapp = async (req, res) => {
+  let { userNo, dealerNo, hMessage, sMessage, orderData } = req.body;
+  orderData = JSON.parse(orderData);
 
-  try{
+  const details = `
+    Name of User: ${orderData.name},
+    Address of User: ${orderData.address},
+    Scrap Types: ${orderData.scrapType},
+    Relative mass: ${orderData.mass} kg
+  `;
+  try {
     client.messages
-    .create({
-      body: `${hMessage}`,
-      from: "whatsapp:+14155238886",
-      to: `whatsapp:${userNo}`,
-    })
-    .then((message) => console.log(message.sid))
-    .catch((err) => console.log(err))
-    .done();
+      .create({
+        body: `${hMessage} ${details}
+        Dealer number: ${dealerNo}`,
+        from: "whatsapp:+14155238886",
+        to: `whatsapp:${userNo}`,
+      })
+      .then((message) => console.log(message.sid))
+      .catch((err) => console.log(err))
+      .done();
 
     client.messages
-    .create({
-      body: `${sMessage}`,
-      from: "whatsapp:+14155238886",
-      to: `whatsapp:${dealerNo}`,
-    })
-    .then((message) => console.log(message.sid))
-    .catch((err) => console.log(err))
-    .done();
+      .create({
+        body: `${sMessage} ${details}
+        HouseHold number: ${userNo}`,
+        from: "whatsapp:+14155238886",
+        to: `whatsapp:${dealerNo}`,
+      })
+      .then((message) => console.log(message.sid))
+      .catch((err) => console.log(err))
+      .done();
 
-    res.status(200).json({message: 'Notified both dealer and user'});
-  }catch(err){
+    res.status(200).json({ message: "Notified both dealer and user" });
+  } catch (err) {
     res.status(400).json({ message: err.message });
   }
-}
+};
 
 module.exports = {
   getAllTransac,
   createTransac,
   updateTransac,
   getTransDetails,
-  newDealWhatsapp
+  newDealWhatsapp,
 };
