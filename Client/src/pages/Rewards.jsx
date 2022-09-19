@@ -5,10 +5,10 @@ const Rewards = () => {
     <>
       {" "}
       <div className="flex flex-col box  item-center justify-center">
-        <h1 className="text-center m-9 font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        <h1 className="text-center m-9 font-extrabold text-transparent text-3xl md:text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           Your Rewards 🎁
         </h1>
-        <div className="flex flex-row box  justify-between mb-5 mt-3 flex-wrap gap-10">
+        <div className="flex items-center flex-row box justify-between mb-5 mt-3 flex-wrap gap-10">
           <Card
             pic="https://cdn-icons-png.flaticon.com/512/3176/3176294.png"
             rewName="Enviroment Hero"

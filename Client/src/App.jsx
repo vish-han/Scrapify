@@ -21,11 +21,15 @@ import DOD from "./pages/DOD";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import Success from "./pages/Success";
 
 function App() {
   useEffect(() => {
     Aos.init();
   }, []);
+
+  document.title = 'Scrapify'
+
   return (
     <>
       <div className="App font-poppins ">
@@ -38,18 +42,16 @@ function App() {
           <Route path="deal" element={<Deals />} />
           <Route path="loading" element={<Loading />} />
           <Route path="profile" element={<Profile />} />
-          <Route
-            path="timeline/:id"
-            element={<Timeline />}
-          />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
           <Route path="dod" element={<DOD />} />
+          <Route path="timeline" element={<Timeline></Timeline>}/>
           <Route
             path="createDeal/:id"
             element={<CreateDeal />}
           />
           <Route path="dealerprofile/:id" element={<DealerProfile />} />
+          <Route path="success" element={<Success/>}/>
           <Route path="rewards" element={<Rewards />} />
           <Route path="transactions" element={<Transaction />} />
         </Routes>
