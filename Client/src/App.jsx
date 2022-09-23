@@ -13,7 +13,7 @@ import Profile from "./pages/Profile";
 import Rewards from "./pages/Rewards";
 import Transaction from "./pages/Transaction";
 import DealerProfile from "./pages/DealerProfile";
-import Timeline from "./pages/timeline";
+
 import CreateDeal from "./pages/CreateDeal";
 import DOD from "./pages/DOD";
 
@@ -45,7 +45,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
           <Route path="dod" element={<DOD />} />
-          <Route path="timeline" element={<Timeline></Timeline>}/>
+          
           <Route
             path="createDeal/:id"
             element={<CreateDeal />}
