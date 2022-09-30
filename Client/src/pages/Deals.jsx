@@ -171,11 +171,12 @@ const Deals = () => {
 
   return (
     <div className="box flex flex-col h-full">
-      <h1 className='text-center m-9 font-extrabold text-transparent text-3xl md:text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Make a Deal </h1>
+      <h1 className='text-center m-9 font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Make a Deal </h1>
       <div className="relative w-full h-[600px]">
         <div className="map-container" ref={mapContainerRef} id="map" />
       </div>
       {geojson.features.map((geo) => (
+        
         <Dealer
           key={geo.id}
           id={geo.id}
