@@ -3,8 +3,8 @@ const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 
 // twillio
-const accountSid = `ACccbf6dffd8991b3c994e8820d8ba3c11`;
-const authToken = `b5753151bdf7281b03dea6c036a52cc6`;
+const accountSid = `AC1b46169982275d0638bb8aed194f6a37`;
+const authToken = `eb10f9d86c53589d7a5d97fedbaf8f32`;
 const client = require("twilio")(accountSid, authToken);
 
 const register = async (req, res) => {
@@ -15,7 +15,7 @@ const register = async (req, res) => {
     .create({
       body: "Hey!! You have successfully registered in the SCRAPIFY, it's time to make a deal",
       from: "whatsapp:+14155238886",
-      to: `whatsapp:${phone}`,
+      to: `whatsapp:+91${phone}`,
     })
     .then((message) => console.log(message.sid))
     .catch((err) => console.log(err))
