@@ -1,6 +1,6 @@
 const Transac = require("../models/TransactionModel");
 const accountSid = `AC1b46169982275d0638bb8aed194f6a37`;
-const authToken = `eb10f9d86c53589d7a5d97fedbaf8f32`;
+const authToken = `b88120bdb94be3b2ca0ac6afbb0f3173`;
 const client = require("twilio")(accountSid, authToken);
 
 const getAllTransac = async (req, res) => {
