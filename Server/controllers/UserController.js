@@ -4,52 +4,50 @@ const generateToken = require("../utils/generateToken");
 
 // twillio
 const accountSid = `AC1b46169982275d0638bb8aed194f6a37`;
-const authToken = `b88120bdb94be3b2ca0ac6afbb0f3173`;
+const authToken = `8db138ca93f55a7797d69204ae78bd2f`;
 const client = require("twilio")(accountSid, authToken);
 
 const register = async (req, res) => {
   console.log(req.body);
-  const {name, email, address, phone, poster_path, userkind, isLocalAdmin} = req.body;
-//   const res1 = await fetch("https://libretranslate.com/translate", {
-// 	method: "POST",
-// 	body: JSON.stringify({
-// 		q: `Hey!! You have successfully registered in the SCRAPIFY, it's time to make a deal`,
-// 		source: "en",
-// 		target: "hi",
-// 		format: "text",
-// 		api_key: ""
-// 	}),
-// 	headers: { "Content-Type": "application/json" }
-// }).then(res1 => res1.json())
-// .then(json => console.log(json))
-// .catch(err => console.error('error:' + err));;
+  const { name, email, address, phone, poster_path, userkind, isLocalAdmin } =
+    req.body;
+  //   const res1 = await fetch("https://libretranslate.com/translate", {
+  // 	method: "POST",
+  // 	body: JSON.stringify({
+  // 		q: `Hey!! You have successfully registered in the SCRAPIFY, it's time to make a deal`,
+  // 		source: "en",
+  // 		target: "hi",
+  // 		format: "text",
+  // 		api_key: ""
+  // 	}),
+  // 	headers: { "Content-Type": "application/json" }
+  // }).then(res1 => res1.json())
+  // .then(json => console.log(json))
+  // .catch(err => console.error('error:' + err));;
 
-
-// console.log(res1);
-client.messages
-.create({
-  from: "whatsapp:+14155238886",
-  to: `whatsapp:+91${phone}`,
-  body: `Hey ${name}!!!!!! You have successfully registered in the SCRAPIFY, it's time to make a deal`,
-
-
-})
-.then((message) => console.log(message.sid))
-.catch((err) => console.log(err))
-.done();
+  // console.log(res1);
   client.messages
     .create({
       from: "whatsapp:+14155238886",
       to: `whatsapp:+91${phone}`,
-     
-      mediaUrl:'https://img.freepik.com/free-vector/happy-tiny-people-near-huge-welcome-word-flat-illustration_74855-10808.jpg?w=1060&t=st=1664560946~exp=1664561546~hmac=46af893665d6adfd83244eea7d3576006926e39f97f274bf3ecceabcc9385cc5',
-      contentType :  ['image/jpg']
-
+      body: `Hey ${name}!!!!!! You have successfully registered in the SCRAPIFY, it's time to make a deal`,
     })
     .then((message) => console.log(message.sid))
     .catch((err) => console.log(err))
-    .done();  
-  
+    .done();
+
+  client.messages
+    .create({
+      from: "whatsapp:+14155238886",
+      to: `whatsapp:+91${phone}`,
+
+      mediaUrl:
+        "https://img.freepik.com/free-vector/happy-tiny-people-near-huge-welcome-word-flat-illustration_74855-10808.jpg?w=1060&t=st=1664560946~exp=1664561546~hmac=46af893665d6adfd83244eea7d3576006926e39f97f274bf3ecceabcc9385cc5",
+      contentType: ["image/jpg"],
+    })
+    .then((message) => console.log(message.sid))
+    .catch((err) => console.log(err))
+    .done();
 
   try {
     let checkEmail = await User.findOne({ email: email });
@@ -57,7 +55,7 @@ client.messages
       res.status(400).json({ message: "Email already Exist" });
     }
 
-    const pass = bcrypt.hashSync(req.body.password, 8)
+    const pass = bcrypt.hashSync(req.body.password, 8);
 
     let user = await User.create({
       name: name,
@@ -67,7 +65,7 @@ client.messages
       phone: phone,
       userkind: userkind,
       poster_path: poster_path,
-      isLocalAdmin: isLocalAdmin
+      isLocalAdmin: isLocalAdmin,
     });
 
     const token = generateToken(user._id);
@@ -113,7 +111,7 @@ const userDetail = async (req, res) => {
       return res.status(400).json({ error: "User does not exist :(" });
     }
 
-    const {password, ...rest} = user;
+    const { password, ...rest } = user;
 
     res.status(200).json(rest._doc);
   } catch (error) {
@@ -121,30 +119,28 @@ const userDetail = async (req, res) => {
   }
 };
 
-const updateUser = async(req, res) => {
-  try{
+const updateUser = async (req, res) => {
+  try {
     const user = await User.find({ _id: req.body._id });
     if (!user)
-      res
-        .status(400)
-        .json({ message: "No such User exist, can't update" });
+      res.status(400).json({ message: "No such User exist, can't update" });
     const details = await User.findByIdAndUpdate(req.body._id, req.body, {
       new: true,
     });
 
     res.status(200).json(details);
-  }catch(err){
+  } catch (err) {
     res.status(400).json({ error: err.message });
   }
-} 
+};
 
-const getAllScrappers = async(req, res) => {
-  try{
-    const data = await User.find({userkind: 's'});
+const getAllScrappers = async (req, res) => {
+  try {
+    const data = await User.find({ userkind: "s" });
     res.status(200).json(data);
-  }catch(err) {
+  } catch (err) {
     res.status(400).json({ error: err.message });
   }
-}
+};
 
 module.exports = { register, login, userDetail, updateUser, getAllScrappers };

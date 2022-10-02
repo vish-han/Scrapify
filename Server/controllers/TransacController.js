@@ -1,6 +1,6 @@
 const Transac = require("../models/TransactionModel");
 const accountSid = `AC1b46169982275d0638bb8aed194f6a37`;
-const authToken = `b88120bdb94be3b2ca0ac6afbb0f3173`;
+const authToken = `8db138ca93f55a7797d69204ae78bd2f`;
 const client = require("twilio")(accountSid, authToken);
 
 const getAllTransac = async (req, res) => {
@@ -92,34 +92,37 @@ const newDealWhatsapp = async (req, res) => {
         Dealer number: ${dealerNo}`,
         from: "whatsapp:+14155238886",
         to: `whatsapp:+91${userNo}`,
+        mediaUrl:'https://img.freepik.com/free-vector/coming-soon-teaser-promo-display-background_1017-33738.jpg?w=740&t=st=1664561972~exp=1664562572~hmac=dbdca3b836bbdbc71ee4ecc975906e0e7895fd92c2828ff214fde3502249b3e2',
+        contentType :  ['image/jpg']
 
       })
       .then((message) => console.log(message.sid))
       .catch((err) => console.log(err))
       .done();
 
+    
     client.messages
       .create({
         body: `${sMessage} ${details}
-        HouseHold number: ${userNo}`,
+        HouseHold number: +91${userNo}`,
         from: "whatsapp:+14155238886",
         to: `whatsapp:${dealerNo}`,
       })
       .then((message) => console.log(message.sid))
       .catch((err) => console.log(err))
       .done();
-      client.messages
-      .create({
-        from: "whatsapp:+14155238886",
-        to: `whatsapp:${userNo}`,
+      // client.messages
+      // .create({
+      //   from: "whatsapp:+14155238886",
+      //   to: `whatsapp:${userNo}`,
        
-        mediaUrl:'https://img.freepik.com/free-vector/coming-soon-teaser-promo-display-background_1017-33738.jpg?w=740&t=st=1664561972~exp=1664562572~hmac=dbdca3b836bbdbc71ee4ecc975906e0e7895fd92c2828ff214fde3502249b3e2',
-        contentType :  ['image/jpg']
+      //   mediaUrl:'  https://img.freepik.com/free-vector/coming-soon-teaser-promo-display-background_1017-33738.jpg?w=740&t=st=1664561972~exp=1664562572~hmac=dbdca3b836bbdbc71ee4ecc975906e0e7895fd92c2828ff214fde3502249b3e2',
+      //   contentType :  ['image/jpg']
   
-      })
-      .then((message) => console.log(message.sid))
-      .catch((err) => console.log(err))
-      .done(); 
+      // })
+      // .then((message) => console.log(message.sid))
+      // .catch((err) => console.log(err))
+      // .done(); 
 
     res.status(200).json({ message: "Notified both dealer and user" });
   } catch (err) {
